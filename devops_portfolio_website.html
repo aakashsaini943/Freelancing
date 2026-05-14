@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Mercer — DevOps & Cloud Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div id="progress-bar" style="width:0%"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo" onclick="scrollTo(0,0)">velzara<span style="color:var(--accent)">.</span></div>
+  <ul class="nav-links">
+    <li><a onclick="scrollSec('about')">About</a></li>
+    <li><a onclick="scrollSec('services')">Services</a></li>
+    <li><a onclick="scrollSec('projects')">Projects</a></li>
+    <li><a onclick="scrollSec('pricing')">Pricing</a></li>
+    <li><a onclick="scrollSec('blog')">Blog</a></li>
+    <li><a onclick="scrollSec('contact')">Contact</a></li>
+  </ul>
+  <div class="nav-actions" style="display:flex;align-items:center;gap:1rem">
+    <div class="avail-badge"><span class="avail-dot"></span>Available for work</div>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ Light</button>
+    <button class="nav-cta" onclick="openQuoteModal()">Request Quote ↗</button>
+    <div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="scrollSec('about')">About</a>
+  <a onclick="scrollSec('services')">Services</a>
+  <a onclick="scrollSec('projects')">Projects</a>
+  <a onclick="scrollSec('pricing')">Pricing</a>
+  <a onclick="scrollSec('contact')">Contact</a>
+  <button class="btn-primary" onclick="openQuoteModal()">Request a Quote</button>
+</div>
+
+<!-- HERO -->
+<section id="hero" style="padding:0;max-width:100%;margin:0">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <canvas class="particles-canvas" id="particles"></canvas>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">⚡ <span>Open to Freelance</span> · Full Stack + DevOps + Cloud</div>
+    <h1 class="hero-title">
+      <span class="line1">Hi, I'm Alex Mercer</span>
+      <span class="line2">DevOps · Cloud · Fullstack</span>
+    </h1>
+    <p class="hero-subtitle">I architect scalable cloud infrastructure, automate CI/CD pipelines, and build production-grade full-stack applications. From zero to production in record time.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="scrollSec('contact')">🚀 Hire Me</button>
+      <button class="btn-secondary" onclick="scrollSec('booking')">📅 Book Consultation</button>
+      <button class="btn-ghost" onclick="scrollSec('projects')">💼 View Projects</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num" data-count="120">0</div><div class="stat-label">Projects</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="85">0</div><div class="stat-label">Clients</div></div>
+      <div class="stat-num" style="display:none"></div>
+      <div class="stat-item"><div class="stat-num" data-count="99" data-suffix=".9%">0</div><div class="stat-label">Uptime SLA</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="500">0</div><div class="stat-label">Deployments</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="7">0</div><div class="stat-label">Years Exp</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-tag">◈ About Me</div>
+  <h2 class="section-title">Engineering the future,<br>one pipeline at a time</h2>
+  <div class="about-grid">
+    <div>
+      <div class="about-img">
+        <div class="avatar-circle">AM</div>
+        <div class="about-name">Alex Mercer</div>
+        <div class="about-role">Senior DevOps & Cloud Architect</div>
+        <div class="skills-list">
+          <span class="skill-chip">AWS Certified</span>
+          <span class="skill-chip">CKA Certified</span>
+          <span class="skill-chip">Terraform Expert</span>
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">Go</span>
+          <span class="skill-chip">React</span>
+          <span class="skill-chip">Node.js</span>
+          <span class="skill-chip">PostgreSQL</span>
+          <span class="skill-chip">Redis</span>
+        </div>
+        <div class="trust-badges">
+          <span class="trust-badge">✓ AWS Solutions Architect</span>
+          <span class="trust-badge">✓ CKA Kubernetes</span>
+          <span class="trust-badge">✓ Google Cloud Pro</span>
+          <span class="trust-badge">✓ 5★ on Toptal</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:0.83rem;color:var(--text2);line-height:1.8;margin-bottom:1.5rem">With 7+ years engineering cloud infrastructure for startups and Fortune 500s, I specialize in DevOps transformation, Kubernetes orchestration, and building full-stack products that scale. I've helped 85+ clients achieve 99.9% uptime and deploy 10x faster.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">2022 — PRESENT</div>
+          <div class="tl-role">Senior Cloud Architect & Freelancer</div>
+          <div class="tl-company">Self-Employed · Remote</div>
+          <div class="tl-desc">Architecting cloud-native solutions, leading DevOps transformations, building SaaS products for global clients.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2019 — 2022</div>
+          <div class="tl-role">Lead DevOps Engineer</div>
+          <div class="tl-company">TechScale Inc · San Francisco</div>
+          <div class="tl-desc">Led a team of 6 engineers, migrated 40+ services to Kubernetes, reduced deployment time by 80%.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2017 — 2019</div>
+          <div class="tl-role">Full Stack Developer</div>
+          <div class="tl-company">Nexus Labs · New York</div>
+          <div class="tl-desc">Built and shipped React/Node.js products, set up initial CI/CD infrastructure using Jenkins and AWS.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="max-width:1100px;margin:0 auto;padding:5rem 2rem">
+  <div class="section-tag">◈ Services</div>
+  <h2 class="section-title">What I build for you</h2>
+  <p class="section-sub">End-to-end engineering solutions across cloud, DevOps, and full-stack development.</p>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">⚙️</div><div class="service-title">DevOps Automation</div><div class="service-desc">Infrastructure as Code with Terraform & Ansible. Automate everything from provisioning to configuration.</div><div class="service-tags"><span class="s-tag">Terraform</span><span class="s-tag">Ansible</span><span class="s-tag">Pulumi</span></div></div>
+    <div class="service-card"><div class="service-icon">🔄</div><div class="service-title">CI/CD Pipelines</div><div class="service-desc">Blazing-fast deployment pipelines with GitHub Actions, GitLab CI, or Jenkins. Deploy 10x faster.</div><div class="service-tags"><span class="s-tag">GitHub Actions</span><span class="s-tag">ArgoCD</span><span class="s-tag">Jenkins</span></div></div>
+    <div class="service-card"><div class="service-icon">🐳</div><div class="service-title">Docker & Kubernetes</div><div class="service-desc">Container orchestration at scale. Multi-cluster K8s deployments, Helm charts, and service meshes.</div><div class="service-tags"><span class="s-tag">Docker</span><span class="s-tag">Kubernetes</span><span class="s-tag">Helm</span><span class="s-tag">Istio</span></div></div>
+    <div class="service-card"><div class="service-icon">☁️</div><div class="service-title">AWS / Azure / GCP</div><div class="service-desc">Multi-cloud architecture design and management. VPC, EKS, Lambda, RDS, CDN — the full stack.</div><div class="service-tags"><span class="s-tag">AWS</span><span class="s-tag">Azure</span><span class="s-tag">GCP</span></div></div>
+    <div class="service-card"><div class="service-icon">🐧</div><div class="service-title">Linux Server Management</div><div class="service-desc">Hardened, production-ready servers. Performance tuning, security hardening, and 24/7 monitoring.</div><div class="service-tags"><span class="s-tag">Ubuntu</span><span class="s-tag">RHEL</span><span class="s-tag">Nginx</span></div></div>
+    <div class="service-card"><div class="service-icon">💻</div><div class="service-title">Full Stack Development</div><div class="service-desc">End-to-end product development. React frontends, Node.js/Go APIs, databases, and cloud deployment.</div><div class="service-tags"><span class="s-tag">React</span><span class="s-tag">Node.js</span><span class="s-tag">Go</span><span class="s-tag">PostgreSQL</span></div></div>
+    <div class="service-card"><div class="service-icon">📊</div><div class="service-title">Monitoring & Logging</div><div class="service-desc">Full observability stack. Prometheus, Grafana dashboards, ELK, PagerDuty alerting, and SLAs.</div><div class="service-tags"><span class="s-tag">Prometheus</span><span class="s-tag">Grafana</span><span class="s-tag">ELK</span></div></div>
+    <div class="service-card"><div class="service-icon">🚀</div><div class="service-title">Cloud Migration</div><div class="service-desc">Lift-and-shift or cloud-native re-architecture. Zero-downtime migrations with full rollback plans.</div><div class="service-tags"><span class="s-tag">Migration</span><span class="s-tag">Multi-Cloud</span><span class="s-tag">Cost Opt.</span></div></div>
+  </div>
+</section>
+
+<div class="tech-grid">
+
+  <!-- React -->
+  <div class="tech-item">
+    <i class="devicon-react-original colored tech-logo"></i>
+    <span>React</span>
+  </div>
+
+  <!-- Node.js -->
+  <div class="tech-item">
+    <i class="devicon-nodejs-plain colored tech-logo"></i>
+    <span>Node.js</span>
+  </div>
+
+  <!-- Go -->
+  <div class="tech-item">
+    <i class="devicon-go-original-wordmark colored tech-logo"></i>
+    <span>Go</span>
+  </div>
+
+  <!-- Python -->
+  <div class="tech-item">
+    <i class="devicon-python-plain colored tech-logo"></i>
+    <span>Python</span>
+  </div>
+
+  <!-- Docker -->
+  <div class="tech-item">
+    <i class="devicon-docker-plain colored tech-logo"></i>
+    <span>Docker</span>
+  </div>
+
+  <!-- Kubernetes -->
+  <div class="tech-item">
+    <i class="devicon-kubernetes-plain colored tech-logo"></i>
+    <span>Kubernetes</span>
+  </div>
+
+  <!-- AWS -->
+  <div class="tech-item">
+    <i class="devicon-amazonwebservices-original colored tech-logo"></i>
+    <span>AWS</span>
+  </div>
+
+  <!-- Azure -->
+  <div class="tech-item">
+    <i class="devicon-azure-plain colored tech-logo"></i>
+    <span>Azure</span>
+  </div>
+
+  <!-- GCP -->
+  <div class="tech-item">
+    <i class="devicon-googlecloud-plain colored tech-logo"></i>
+    <span>Google Cloud</span>
+  </div>
+
+  <!-- Terraform -->
+  <div class="tech-item">
+    <i class="devicon-terraform-plain colored tech-logo"></i>
+    <span>Terraform</span>
+  </div>
+
+  <!-- Ansible -->
+  <div class="tech-item">
+    <i class="devicon-ansible-plain colored tech-logo"></i>
+    <span>Ansible</span>
+  </div>
+
+  <!-- GitHub -->
+  <div class="tech-item">
+    <i class="devicon-github-original colored tech-logo"></i>
+    <span>GitHub</span>
+  </div>
+
+  <!-- GitHub Actions -->
+  <div class="tech-item">
+    <i class="devicon-githubactions-plain colored tech-logo"></i>
+    <span>GitHub Actions</span>
+  </div>
+
+  <!-- ArgoCD -->
+  <div class="tech-item">
+    <i class="devicon-argocd-plain colored tech-logo"></i>
+    <span>ArgoCD</span>
+  </div>
+
+  <!-- Prometheus -->
+  <div class="tech-item">
+    <i class="devicon-prometheus-original colored tech-logo"></i>
+    <span>Prometheus</span>
+  </div>
+
+  <!-- Grafana -->
+  <div class="tech-item">
+    <i class="devicon-grafana-original colored tech-logo"></i>
+    <span>Grafana</span>
+  </div>
+
+  <!-- Elasticsearch -->
+  <div class="tech-item">
+    <i class="devicon-elasticsearch-plain colored tech-logo"></i>
+    <span>Elasticsearch</span>
+  </div>
+
+  <!-- Kibana -->
+  <div class="tech-item">
+    <i class="devicon-kibana-plain colored tech-logo"></i>
+    <span>Kibana</span>
+  </div>
+
+  <!-- Logstash -->
+  <div class="tech-item">
+    <i class="devicon-logstash-plain colored tech-logo"></i>
+    <span>Logstash</span>
+  </div>
+
+  <!-- PostgreSQL -->
+  <div class="tech-item">
+    <i class="devicon-postgresql-plain colored tech-logo"></i>
+    <span>PostgreSQL</span>
+  </div>
+
+  <!-- Redis -->
+  <div class="tech-item">
+    <i class="devicon-redis-plain colored tech-logo"></i>
+    <span>Redis</span>
+  </div>
+
+  <!-- Nginx -->
+  <div class="tech-item">
+    <i class="devicon-nginx-original colored tech-logo"></i>
+    <span>Nginx</span>
+  </div>
+
+  <!-- Vault -->
+  <div class="tech-item">
+    <i class="devicon-vault-plain colored tech-logo"></i>
+    <span>Vault</span>
+  </div>
+
+  <!-- Linux -->
+  <div class="tech-item">
+    <i class="devicon-linux-plain colored tech-logo"></i>
+    <span>Linux</span>
+  </div>
+
+  <!-- Jenkins -->
+  <div class="tech-item">
+    <i class="devicon-jenkins-line colored tech-logo"></i>
+    <span>Jenkins</span>
+  </div>
+
+  <!-- MongoDB -->
+  <div class="tech-item">
+    <i class="devicon-mongodb-plain colored tech-logo"></i>
+    <span>MongoDB</span>
+  </div>
+
+  <!-- TypeScript -->
+  <div class="tech-item">
+    <i class="devicon-typescript-plain colored tech-logo"></i>
+    <span>TypeScript</span>
+  </div>
+
+  <!-- JavaScript -->
+  <div class="tech-item">
+    <i class="devicon-javascript-plain colored tech-logo"></i>
+    <span>JavaScript</span>
+  </div>
+
+</div>
+
+<!-- PROJECTS -->
+<section id="projects" style="max-width:1100px;margin:0 auto;padding:5rem 2rem">
+  <div class="section-tag">◈ Projects</div>
+  <h2 class="section-title">Recent work</h2>
+  <p class="section-sub">A selection of high-impact projects shipped for clients and personal products.</p>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-img" style="background:linear-gradient(135deg,#0c1445,#1a0533)">🏗️</div>
+      <div class="project-body">
+        <div class="project-title">CloudOps Dashboard</div>
+        <div class="project-desc">Real-time Kubernetes cluster monitoring dashboard with cost analytics, alert management, and auto-scaling recommendations.</div>
+        <div class="project-techs"><span class="tech-badge">React</span><span class="tech-badge">K8s</span><span class="tech-badge">Prometheus</span><span class="tech-badge">Go</span></div>
+        <div class="project-btns">
+          <button class="btn-sm btn-sm-primary" onclick="openCaseStudy(0)">📖 Case Study</button>
+          <button class="btn-sm btn-sm-secondary">🔗 Live Demo</button>
+          <button class="btn-sm btn-sm-secondary">⭐ GitHub</button>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img" style="background:linear-gradient(135deg,#0a2818,#0a1628)">🚀</div>
+      <div class="project-body">
+        <div class="project-title">AutoDeploy Platform</div>
+        <div class="project-desc">Zero-config deployment platform for Node.js apps. Push to deploy with automatic SSL, CDN, and rollback support.</div>
+        <div class="project-techs"><span class="tech-badge">Node.js</span><span class="tech-badge">Docker</span><span class="tech-badge">Terraform</span><span class="tech-badge">AWS</span></div>
+        <div class="project-btns">
+          <button class="btn-sm btn-sm-primary" onclick="openCaseStudy(1)">📖 Case Study</button>
+          <button class="btn-sm btn-sm-secondary">🔗 Live Demo</button>
+          <button class="btn-sm btn-sm-secondary">⭐ GitHub</button>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img" style="background:linear-gradient(135deg,#1a0c05,#0c0a1a)">🌐</div>
+      <div class="project-body">
+        <div class="project-title">FinTrack SaaS</div>
+        <div class="project-desc">Multi-tenant financial analytics platform serving 10K+ users. Event-driven architecture on AWS with 99.9% uptime.</div>
+        <div class="project-techs"><span class="tech-badge">React</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">AWS Lambda</span><span class="tech-badge">Redis</span></div>
+        <div class="project-btns">
+          <button class="btn-sm btn-sm-primary" onclick="openCaseStudy(2)">📖 Case Study</button>
+          <button class="btn-sm btn-sm-secondary">🔗 Live Demo</button>
+          <button class="btn-sm btn-sm-secondary">⭐ GitHub</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="max-width:1100px;margin:0 auto;padding:5rem 2rem">
+  <div class="section-tag">◈ Testimonials</div>
+  <h2 class="section-title">What clients say</h2>
+  <div class="testimonial-wrap">
+    <div class="testimonial-track" id="testimonialTrack">
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="t-text">"Alex transformed our deployment process completely. What used to take days now takes minutes. The Kubernetes setup is rock-solid and the monitoring dashboards are incredible."</p><div class="t-author"><div class="t-avatar">JR</div><div><div class="t-name">James Rivera</div><div class="t-role">CTO, DataFlow Inc</div></div></div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="t-text">"Hired Alex for a cloud migration from on-prem to AWS. Zero downtime, on-budget, and the new infrastructure runs 40% cheaper. Absolutely professional."</p><div class="t-author"><div class="t-avatar">SL</div><div><div class="t-name">Sarah Liu</div><div class="t-role">VP Engineering, NexTech</div></div></div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="t-text">"The CI/CD pipeline Alex built handles 200+ daily deployments without a hitch. Our release cycle went from 2 weeks to same-day. Game changing for our startup."</p><div class="t-author"><div class="t-avatar">MK</div><div><div class="t-name">Marcus Kim</div><div class="t-role">Founder, LaunchFast</div></div></div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="t-text">"Outstanding full-stack developer who also understands infrastructure deeply. Delivered our entire product — frontend to Kubernetes cluster — in 6 weeks. Exceptional."</p><div class="t-author"><div class="t-avatar">AP</div><div><div class="t-name">Amira Patel</div><div class="t-role">CEO, ScaleAI</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="max-width:1100px;margin:0 auto;padding:5rem 2rem">
+  <div class="section-tag">◈ Pricing</div>
+  <h2 class="section-title">Transparent pricing</h2>
+  <p class="section-sub">No surprises. Fixed-scope engagements or retainer-based collaboration.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="plan-name">Starter</div>
+      <div class="plan-desc">For small projects and startups testing the waters.</div>
+      <div class="plan-price">$2,500<span>/project</span></div>
+      <ul class="plan-features">
+        <li>CI/CD pipeline setup</li>
+        <li>Docker containerization</li>
+        <li>Basic AWS deployment</li>
+        <li>1 environment (staging)</li>
+        <li>Basic monitoring setup</li>
+        <li>2 weeks turnaround</li>
+        <li>30 days support</li>
+      </ul>
+      <button class="plan-btn plan-btn-outline" onclick="openQuoteModal()">Get Started</button>
+    </div>
+    <div class="pricing-card featured">
+      <div class="featured-badge">✦ Most Popular</div>
+      <div class="plan-name">Professional</div>
+      <div class="plan-desc">For scaling companies that need robust infrastructure.</div>
+      <div class="plan-price">$7,500<span>/month</span></div>
+      <ul class="plan-features">
+        <li>Full Kubernetes setup (EKS/GKE)</li>
+        <li>Multi-environment deployments</li>
+        <li>Infrastructure as Code (Terraform)</li>
+        <li>Advanced monitoring & alerting</li>
+        <li>Security hardening & audits</li>
+        <li>Full Stack development (20hrs/wk)</li>
+        <li>Dedicated Slack channel</li>
+        <li>Weekly strategy calls</li>
+      </ul>
+      <button class="plan-btn plan-btn-primary" onclick="openQuoteModal()">Start Project</button>
+    </div>
+    <div class="pricing-card">
+      <div class="plan-name">Enterprise</div>
+      <div class="plan-desc">White-glove service for complex cloud transformations.</div>
+      <div class="plan-price">Custom<span>/Price</span></div>
+      <ul class="plan-features">
+        <li>Multi-cloud architecture design</li>
+        <li>Full DevOps transformation</li>
+        <li>Team training & documentation</li>
+        <li>24/7 on-call support</li>
+        <li>Compliance & security (SOC2/HIPAA)</li>
+        <li>Dedicated full-stack team</li>
+        <li>SLA guarantees</li>
+        <li>Dedicated Slack + PM</li>
+      </ul>
+      <button class="plan-btn plan-btn-outline" onclick="openQuoteModal()">Contact for Pricing</button>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" style="max-width:1100px;margin:0 auto;padding:5rem 2rem">
+  <div class="section-tag">◈ Schedule</div>
+  <h2 class="section-title">Book a free consultation</h2>
+  <p class="section-sub">30-minute strategy call. No pitch. Pure value.</p>
+  <div class="booking-grid">
+    <div class="calendar-mock">
+      <div class="cal-header">
+        <div class="cal-month" id="calMonth">June 2025</div>
+        <div class="cal-nav"><button onclick="prevMonth()">‹</button><button onclick="nextMonth()">›</button></div>
+      </div>
+      <div class="cal-days" id="calGrid"></div>
+      <div class="time-slots">
+        <div class="time-slots-title">Available times</div>
+        <div class="time-grid" id="timeGrid"></div>
+      </div>
+    </div>
+    <div class="booking-form">
+      <h4>📋 Book Your Slot</h4>
+      <div class="form-group"><label>Your Name</label><input type="text" class="form-input" placeholder="John Smith" id="bkName"></div>
+      <div class="form-group"><label>Email</label><input type="email" class="form-input" placeholder="john@company.com" id="bkEmail"></div>
+      <div class="form-group"><label>What to discuss?</label><select class="form-input" id="bkTopic"><option>DevOps Consultation</option><option>Cloud Architecture Review</option><option>Project Estimation</option><option>Full Stack Development</option><option>General Inquiry</option></select></div>
+      <div class="form-group"><label>Brief Description</label><textarea class="form-input" rows="3" placeholder="What's the challenge you're facing?" id="bkDesc" style="resize:vertical"></textarea></div>
+      <div id="selectedSlot" style="font-size:0.72rem;color:var(--accent);margin-bottom:0.75rem;min-height:1.2rem"></div>
+      <button class="book-btn" onclick="bookSlot()">📅 Confirm Booking</button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="max-width:1100px;margin:0 auto;padding:5rem 2rem">
+  <div class="section-tag">◈ FAQ</div>
+  <h2 class="section-title">Common questions</h2>
+  <div class="faq-list" id="faqList"></div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" style="max-width:1100px;margin:0 auto;padding:5rem 2rem">
+  <div class="section-tag">◈ Blog & Insights</div>
+  <h2 class="section-title">Thoughts from the terminal</h2>
+  <div class="blog-grid">
+    <div class="blog-card"><div class="blog-thumb">🐳<span class="blog-cat">DevOps</span></div><div class="blog-body"><div class="blog-title">Zero-Downtime Kubernetes Deployments: A Complete Guide</div><div class="blog-meta">8 min read · May 2025</div></div></div>
+    <div class="blog-card"><div class="blog-thumb">☁️<span class="blog-cat">Cloud</span></div><div class="blog-body"><div class="blog-title">AWS Cost Optimization: How I Saved $40K/year for a SaaS</div><div class="blog-meta">12 min read · Apr 2025</div></div></div>
+    <div class="blog-card"><div class="blog-thumb">🔄<span class="blog-cat">CI/CD</span></div><div class="blog-body"><div class="blog-title">GitOps in 2025: ArgoCD vs Flux vs GitHub Actions</div><div class="blog-meta">10 min read · Mar 2025</div></div></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem">
+  <div class="newsletter-wrap">
+    <div class="nl-title">DevOps & Cloud insights, monthly.</div>
+    <p class="nl-sub">Join 3,200+ engineers getting practical guides, tool reviews, and cloud architecture deep-dives.</p>
+    <div class="nl-form">
+      <input type="email" class="nl-input" placeholder="you@company.com" id="nlEmail">
+      <button class="nl-btn" onclick="subscribeNL()">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" style="max-width:1100px;margin:0 auto;padding:5rem 2rem">
+  <div class="section-tag">◈ Contact</div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Let's build something remarkable</h3>
+      <p>Have a project in mind? Let's talk. I typically respond within 4 hours during business days.</p>
+      <div class="contact-links">
+        <a class="contact-link float-wa" href="#"><span class="cl-icon">💬</span>WhatsApp · +1 (555) 0100</a>
+        <a class="contact-link float-li" href="#"><span class="cl-icon">💼</span>LinkedIn · /in/alexmercer</a>
+        <a class="contact-link float-tg" href="#"><span class="cl-icon">✈️</span>Telegram · @alexmercer_dev</a>
+        <a class="contact-link" href="mailto:alex@mercer.dev"><span class="cl-icon">📧</span>alex@mercer.dev</a>
+      </div>
+      <div style="padding:1rem;background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.2);border-radius:12px">
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.72rem;color:var(--accent3)"><span class="avail-dot"></span><strong>Currently available</strong></div>
+        <div style="font-size:0.7rem;color:var(--text3);margin-top:0.3rem">Next opening: Immediate · Timezone: EST</div>
+      </div>
+    </div>
+    <div class="form-wrap">
+      <div class="form-row">
+        <div class="form-group"><label>Name *</label><input type="text" class="form-input" placeholder="Your name" id="fName"></div>
+        <div class="form-group"><label>Email *</label><input type="email" class="form-input" placeholder="you@company.com" id="fEmail"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Phone</label><input type="tel" class="form-input" placeholder="+1 555 0100" id="fPhone"></div>
+        <div class="form-group"><label>Company</label><input type="text" class="form-input" placeholder="Your company" id="fCompany"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Project Type</label><select class="form-input" id="fType"><option>DevOps Consulting</option><option>CI/CD Pipeline</option><option>Cloud Migration</option><option>Kubernetes Setup</option><option>Full Stack Development</option><option>Monitoring Setup</option><option>Other</option></select></div>
+        <div class="form-group"><label>Budget</label><select class="form-input" id="fBudget"><option>$1K – $5K</option><option>$5K – $15K</option><option>$15K – $50K</option><option>$50K+</option><option>Monthly Retainer</option></select></div>
+      </div>
+      <div class="form-group"><label>Message *</label><textarea class="form-input" rows="4" placeholder="Describe your project, timeline, and goals..." id="fMsg" style="resize:vertical"></textarea></div>
+      <div class="form-group"><label>Attachment (optional)</label><input type="file" class="form-input" id="fFile" accept=".pdf,.doc,.docx,.txt" style="padding:0.5rem"></div>
+      <button class="submit-btn" id="submitBtn" onclick="submitForm()">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ALEXMERCER<span style="-webkit-text-fill-color:var(--accent)">.</span></div>
+  <p class="footer-text">© 2025 Alex Mercer · DevOps, Cloud & Full Stack Engineering · Built with ❤️ and too much coffee</p>
+</footer>
+
+<!-- FLOATING ACTIONS -->
+<div class="float-actions">
+  <a class="float-btn float-wa" title="WhatsApp" href="#">💬</a>
+  <a class="float-btn float-li" title="LinkedIn" href="#">💼</a>
+  <a class="float-btn float-tg" title="Telegram" href="#">✈️</a>
+</div>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- QUOTE MODAL TRIGGER -->
+<button class="quote-modal-trigger" onclick="openQuoteModal()">⚡ Request a Quote</button>
+
+<!-- LEAD POPUP -->
+<div class="lead-popup" id="leadPopup">
+  <button class="lead-close" onclick="closeLead()">×</button>
+  <h4>👋 Working on something big?</h4>
+  <p>Let's talk about your DevOps or cloud project. Free 30-min strategy call.</p>
+  <button class="btn-primary" style="width:100%;padding:0.6rem" onclick="scrollSec('booking');closeLead()">Book Free Call →</button>
+</div>
+
+<!-- CASE STUDY MODAL -->
+<div class="modal-overlay" id="caseModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('caseModal')">×</button>
+    <div id="caseContent"></div>
+  </div>
+</div>
+
+<!-- QUOTE MODAL -->
+<div class="modal-overlay" id="quoteModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('quoteModal')">×</button>
+    <h3>Request a Quote</h3>
+    <p style="font-size:0.78rem;color:var(--text2);margin-bottom:1.5rem">Tell me about your project and I'll send a detailed proposal within 24 hours.</p>
+    <div class="form-group"><label>Project Summary *</label><textarea class="form-input" rows="3" id="qSummary" placeholder="Describe what you want to build or fix..." style="resize:vertical"></textarea></div>
+    <div class="form-row">
+      <div class="form-group"><label>Budget Range</label><select class="form-input" id="qBudget"><option>$1K–$5K</option><option>$5K–$15K</option><option>$15K–$50K</option><option>$50K+</option></select></div>
+      <div class="form-group"><label>Timeline</label><select class="form-input" id="qTimeline"><option>ASAP</option><option>1–2 weeks</option><option>1 month</option><option>Flexible</option></select></div>
+    </div>
+    <div class="form-group"><label>Your Email *</label><input type="email" class="form-input" id="qEmail" placeholder="you@company.com"></div>
+    <button class="submit-btn" onclick="submitQuote()">Send Quote Request →</button>
+  </div>
+</div>
+
+<script src="script.js" ></script>
+</body>
+</html>
